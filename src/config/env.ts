@@ -8,6 +8,10 @@ interface ProcessEnv {
     DB_NAME: string;
     DB_PASS: string;
     DB_PORT: number;
+    AWS_REGION: string;
+    AWS_ACCESS_KEY_ID: string;
+    AWS_SECRET_ACCESS_KEY: string;
+    EMAIL_FROM: string;
 }
 
 export const getEnv = (): ProcessEnv => {
@@ -21,7 +25,13 @@ export const getEnv = (): ProcessEnv => {
     const DB_HOST = getString('DB_HOST');
     const DB_NAME = getString('DB_NAME');
     const DB_PASS = getString('DB_PASS');
-    const DB_PORT = getInteger('DB_PORT'); 
+    const DB_PORT = getInteger('DB_PORT');
+    
+    // AWS SES variables
+    const AWS_REGION = getString('AWS_REGION');
+    const AWS_ACCESS_KEY_ID = getString('AWS_ACCESS_KEY_ID');
+    const AWS_SECRET_ACCESS_KEY = getString('AWS_SECRET_ACCESS_KEY');
+    const EMAIL_FROM = getString('EMAIL_FROM');
     
     return {
         NODE_ENV,
@@ -31,7 +41,11 @@ export const getEnv = (): ProcessEnv => {
         DB_HOST,
         DB_NAME,
         DB_PASS,
-        DB_PORT
+        DB_PORT,
+        AWS_REGION,
+        AWS_ACCESS_KEY_ID,
+        AWS_SECRET_ACCESS_KEY,
+        EMAIL_FROM
     };
 
 };
