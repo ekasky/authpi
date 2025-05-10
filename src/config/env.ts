@@ -10,7 +10,7 @@ interface ProcessEnv {
     DB_PORT: number;
 }
 
-const getEnv = (): ProcessEnv => {
+export const getEnv = (): ProcessEnv => {
 
     const NODE_ENV = getEnum('NODE_ENV', ['development', 'production', 'test']);
     const API_URL  = getString('API_URL');
@@ -36,7 +36,7 @@ const getEnv = (): ProcessEnv => {
 
 };
 
-const getString = (key: string): string => {
+export const getString = (key: string): string => {
 
     const value = process.env[key];
 
@@ -48,7 +48,7 @@ const getString = (key: string): string => {
 
 };
 
-const getNumber = (key: string): number => {
+export const getNumber = (key: string): number => {
 
     const raw = getString(key);
     const value = Number(raw);
@@ -61,7 +61,7 @@ const getNumber = (key: string): number => {
 
 };
 
-const getInteger = (key: string): number => {
+export const getInteger = (key: string): number => {
 
     const value = getNumber(key);
     
@@ -73,7 +73,7 @@ const getInteger = (key: string): number => {
 
 };
 
-const getEnum = <T extends string>(key: string, allowed: T[]): T => {
+export const getEnum = <T extends string>(key: string, allowed: T[]): T => {
 
     const value = getString(key);
 
