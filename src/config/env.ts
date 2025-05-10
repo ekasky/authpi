@@ -3,6 +3,11 @@ interface ProcessEnv {
     NODE_ENV: 'development' | 'production' | 'test';
     API_URL: string;
     PORT: number;
+    DB_USER: string;
+    DB_HOST: string;
+    DB_NAME: string;
+    DB_PASS: string;
+    DB_PORT: number;
 }
 
 const getEnv = (): ProcessEnv => {
@@ -11,10 +16,22 @@ const getEnv = (): ProcessEnv => {
     const API_URL  = getString('API_URL');
     const PORT     = getInteger('PORT');
     
+    // PostgreSQL DB varaibles
+    const DB_USER = getString('DB_USER');
+    const DB_HOST = getString('DB_HOST');
+    const DB_NAME = getString('DB_NAME');
+    const DB_PASS = getString('DB_PASS');
+    const DB_PORT = getInteger('DB_PORT'); 
+    
     return {
         NODE_ENV,
         API_URL,
-        PORT
+        PORT,
+        DB_USER,
+        DB_HOST,
+        DB_NAME,
+        DB_PASS,
+        DB_PORT
     };
 
 };
