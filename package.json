@@ -13,6 +13,7 @@
   "author": "Evan Kasky",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.806.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "pg": "^8.15.6"
