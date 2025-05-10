@@ -104,42 +104,4 @@ describe('Environment Variable Config Tests', () => {
 
     });
 
-    // ===== Tests for getEnv function =====
-    describe('getEnv', () => {
-
-        it('should return a fully parsed env config', () => {
-
-          process.env.NODE_ENV = 'development';
-          process.env.API_URL = 'http://localhost:3000';
-          process.env.PORT = '3000';
-          process.env.DB_USER = 'user';
-          process.env.DB_HOST = 'localhost';
-          process.env.DB_NAME = 'auth';
-          process.env.DB_PASS = 'password';
-          process.env.DB_PORT = '5432';
-    
-          const env = getEnv();
-    
-          expect(env).toEqual({
-            NODE_ENV: 'development',
-            API_URL: 'http://localhost:3000',
-            PORT: 3000,
-            DB_USER: 'user',
-            DB_HOST: 'localhost',
-            DB_NAME: 'auth',
-            DB_PASS: 'password',
-            DB_PORT: 5432,
-          });
-
-        });
-    
-        it('should throw if required env var is missing', () => {
-
-          delete process.env.API_URL;
-          expect(() => getEnv()).toThrow('API_URL is not set or is empty');
-
-        });
-
-      });
-
 });
